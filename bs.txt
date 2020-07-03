@@ -1,0 +1,37 @@
+mkdir express-auth 
+cd express-auth
+touch README.md
+git init && git add . && git commit -m "..."
+touch .gitignore
+npm init -y
+
+code . >> (configure .gitignore)
+
+create 'views' folder
+    index.ejs
+    layout.ejs
+    profile.ejs
+
+    '/auth' folder
+        login.ejs
+        register.ejs
+
+
+npm install dotenv
+npm install express
+npm install ejs
+npm install express-ejs-layouts
+npm install morgan
+npm install helmet
+npm install express-session
+npm install flash
+
+create 'models' folder
+    index.js
+    user.js
+
+
+npm install passport
+npm install passport-local
+npm install pg
+npm install sequelize
