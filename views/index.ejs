@@ -1,1 +1,24 @@
-<h1>Login or Register to join our Website!</h1>
+<div class="lotr-left">
+    <div class="lotr-title">Favorite Lord of the Rings</div>
+    <div class="lotr-info">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias ipsam illo perferendis modi exercitationem itaque sequi dolorem est temporibus, laborum placeat possimus accusantium esse a minus totam provident ut odit?</div>
+</div>
+<div class="lotr-right">
+    <h1>Create a New Account</h1>
+    <%- include('./partials/alerts') %>
+    <div class="reg-form">
+        <form action="/auth/register" method="POST">
+            <div class="form-group">
+                <input id="authName" class="form-input" type="text" name="name" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <input id="authEmail" class="form-input" type="email" name="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <input id="authPassword" class="form-input" type="password" name="password" placeholder="Password">
+            </div>
+            <input class="btn" type="submit">
+        </form>
+    </div>
+</div>    
+
+

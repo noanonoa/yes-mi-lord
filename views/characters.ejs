@@ -1,0 +1,12 @@
+<h1>CHARACTERS TESTING</h1>
+
+
+<% let filteredArray = characters.filter(function(character) { %>
+    <% return character.name.length == 4 %>
+<% }) %>
+
+<% filteredArray.forEach(element => { %>
+    <div>
+        <%= element.name %>
+    </div>
+<% }) %>

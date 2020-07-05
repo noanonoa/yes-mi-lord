@@ -35,3 +35,16 @@ npm install passport
 npm install passport-local
 npm install pg
 npm install sequelize
+
+
+
+
+
+<% characters.forEach(function(character) { %>
+    <div>
+        <%= character.name %>
+    </div>
+<% }) %>
+<p>
+    <a href="<%= pages %>">asdf</a>
+</p>

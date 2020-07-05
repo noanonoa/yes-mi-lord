@@ -15,6 +15,7 @@ const db = require('./models');
 //ADD A LINK TO OUR CUSTOMER MIDDLEWARE FOR isLoggedIn
 const isLoggedIn = require('./middleware/isLoggedIn');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const paginate = require('express-paginate');
 
 
 //APP SETUP
@@ -28,6 +29,7 @@ app.set('view engine', 'ejs');
 app.use(ejsLayouts);
 app.use(require('morgan')('dev'));
 app.use(helmet());
+app.use(paginate.middleware(100, 100));
 
 //CREATE NEW INSTANCE OF CLASS Sequelize Store
 const sessionStore = new SequelizeStore({
@@ -70,6 +72,7 @@ app.get('/profile', isLoggedIn, function(req, res) {
 
 //INCLUDE AUTH CONTROLLER
 app.use('/auth', require('./controllers/auth'));
+app.use('/characters', require('./controllers/characters'));
 
 
 
