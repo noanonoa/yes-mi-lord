@@ -1,12 +1,24 @@
 <h1>CHARACTERS TESTING</h1>
 
-
-<% let filteredArray = characters.filter(function(character) { %>
-    <% return character.name.length == 4 %>
+<% let alphabeticalOrder = [] %>
+<% let charNum = 1 %>
+<% characters.forEach(function(character) { %>
+    <% if (character.hair || character.name == 'Gollum') { %>
+        <% alphabeticalOrder.push({"name": character.name, "wikiUrl":character.wikiUrl}) %>
+    <% } %>
 <% }) %>
 
-<% filteredArray.forEach(element => { %>
-    <div>
+<% alphabeticalOrder.sort(function(a, b) { %>
+    <% if (a.name < b.name) { return -1; } %>
+    <% if (a.name > b.name) { return 1; } %>
+    <% return 0; %>    
+<% }) %>
+
+<% alphabeticalOrder.forEach(element => { %>
+    <div class="characters">
+        <%= element.index = charNum %>
+        <% charNum++ %>
         <%= element.name %>
+        <span><a href="<%= element.wikiUrl %>">(wiki)</a></span>
     </div>
 <% }) %>
