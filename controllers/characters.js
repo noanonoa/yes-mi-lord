@@ -36,12 +36,20 @@ router.get('/:id', (req, res) => {
 
         .then((results) => {
             let characterQuotes = results.data.docs;
-            randomQuote = characterQuotes[randomInt(0, characterQuotes.length - 1)].dialog;
+            let randomQuote = [];
+            if (characterQuotes.length > 0) {          
+                randomQuote = characterQuotes[randomInt(0, characterQuotes.length - 1)].dialog;
 
+                res.render('show', {
+                    character: characterResponse,
+                    randomQuote,
+                    characterQuotes
+                })
+            }
 
             res.render('show', {
                 character: characterResponse,
-                randomQuote,
+                randomQuote
             })
         })
     }).catch(err => console.log(err))
