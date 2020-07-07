@@ -36,15 +36,101 @@ npm install passport-local
 npm install pg
 npm install sequelize
 
-
+========================================
+========================================
 
 
 
 <% characters.forEach(function(character) { %>
+<div>
+    <%= character.name %>
+</div>
+<% }) %>
+
+
+<% characters.forEach(function(character) { %>
+    <% if (character.hair || character.name == 'Gollum') { %>
+        <div class="characters">
+            <a href="<%= character._id %>"></a><%= character.name %>
+            <span><a href="<%= character.wikiUrl %>">(wiki)</a></span>
+        </div>
+    <% } %>
+<% }) %>
+
+========================================
+========================================
+
+let pageNum = req.query.page
+let lower = (pageNum * resultsPerPage) - resultsPerPage
+let upper = lower + resultsPerPage;
+
+<% for (let i = lower; i < upper; i++) { %>
     <div>
-        <%= character.name %>
+        <%= characters[i].name %>
+    </div>
+<% } %>
+
+
+characters.forEach( (element, index) => {
+    if (index > 0 && index < 100)
+    element.name
+})
+
+
+
+<% let filteredArray = characters.filter(function(character) { %>
+    <% return character.name.length == 4 %>
+<% }) %>
+
+<% filteredArray.forEach(element => { %>
+    <div>
+        <%= element.name %>
     </div>
 <% }) %>
-<p>
-    <a href="<%= pages %>">asdf</a>
-</p>
+
+
+
+// pagination
+
+// const itemCount = results.data.docs.length
+        // const resultsPerPage = 100;
+        // console.log(itemCount)
+        // const pageCount = Math.ceil(results.data.docs.length / resultsPerPage);
+
+
+        // console.log(req.query.page)
+        //     pageCount,
+        //     itemCount,
+        //     resultsPerPage,
+        //     pages: paginate.getArrayPages(req)(3, pageCount, req.query.page)
+
+
+
+========================================
+========================================
+
+// MODELS
+
+favorite
+--------
+name: string (name from API)
+charId: string (id from API)
+userId: integer (is this necessary?)
+
+comment
+-------
+userId: integer
+
+
+
+
+========================================
+========================================
+
+// SHOW PAGE
+
+character's {
+    name
+    quotes
+
+}

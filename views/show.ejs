@@ -1,3 +1,42 @@
 <h1>
-    CHARACTER DETAILS
+    <%= (character.name) %>
 </h1>
+<div style="font-style: italic">
+    "<%= randomQuote %>"
+</div>
+<br />
+<div>
+    gender: <%= character.gender %>
+</div>
+<div>
+    <% if (character.height) { %>
+        height: <%= character.height %>
+    <% } else { %>
+        height: unknown
+    <% } %>
+</div>
+<div>
+    <% if (character.hair) { %>
+        hair: <%= character.hair %>
+    <% } else { %>
+        hair: unknown
+    <% } %>
+</div>
+<div>
+    <% if (character.death) { %>
+        death: <%= character.death %>
+    <% } %>
+</div>
+<div>
+    wiki: <a href="<%= character.wikiUrl %>">link</a>
+</div>
+
+<br />
+<div>
+    <a href="">add to favorites</a>
+</div>
+<br />
+
+<div>
+    <a href="/characters">back to characters</a>
+</div>

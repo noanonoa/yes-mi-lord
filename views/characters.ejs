@@ -1,10 +1,10 @@
-<h1>CHARACTERS TESTING</h1>
+<h1>CHARACTERS</h1>
 
 <% let alphabeticalOrder = [] %>
 <% let charNum = 1 %>
 <% characters.forEach(function(character) { %>
     <% if (character.hair || character.name == 'Gollum') { %>
-        <% alphabeticalOrder.push({"name": character.name, "wikiUrl":character.wikiUrl}) %>
+        <% alphabeticalOrder.push({"name": character.name, "wikiUrl":character.wikiUrl, "charId": character._id}) %>
     <% } %>
 <% }) %>
 
@@ -18,7 +18,8 @@
     <div class="characters">
         <%= element.index = charNum %>
         <% charNum++ %>
-        <%= element.name %>
+        <a href="/characters/<%= element.charId %>"><%= element.name %></a>
+        
         <span><a href="<%= element.wikiUrl %>">(wiki)</a></span>
     </div>
 <% }) %>
