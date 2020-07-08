@@ -1,14 +1,30 @@
+<div>
 <h1>
     <%= (character.name) %>
+    <span style="font-size: 12px"><a href="">add to team</a></span>
 </h1>
+</div>
+
 <div style="font-style: italic">
     <% if (randomQuote.length > 0) { %>
         "<%= randomQuote %>"
     <% } %>
 </div>
+
 <br />
 <div>
-    gender: <%= character.gender %>
+    <% if (character.gender) { %>
+        gender: <%= character.gender %>
+    <% } else { %>
+        gender: unknown
+    <% } %>
+</div>
+<div>
+    <% if (character.birth) { %>
+        birth: <%= character.birth %>
+    <% } else { %>
+        birth: unknown
+    <% } %>
 </div>
 <div>
     <% if (character.height) { %>
@@ -25,20 +41,26 @@
     <% } %>
 </div>
 <div>
-    <% if (character.death) { %>
-        death: <%= character.death %>
+    <% if (character.spouse) { %>
+        spouse: <%= character.spouse %>
+    <% } else { %>
+        spouse: unknown
     <% } %>
 </div>
 <div>
-    wiki: <a href="<%= character.wikiUrl %>">link</a>
+    <% if (character.death) { %>
+        death: <%= character.death %>
+    <% } else { %>
+        death: TBD
+    <% } %>
+</div>
+<div>
+    more: <a href="<%= character.wikiUrl %>">wiki</a>
 </div>
 
 <br />
-<div>
-    <a href="">add to favorites</a>
-</div>
 <br />
 
 <div>
-    <a href="/characters">back to characters</a>
+    <a href="/characters"> < back </a>
 </div>

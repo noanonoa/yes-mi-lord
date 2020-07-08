@@ -1,5 +1,5 @@
 # Yes Mi Lord
-A **Lord of the Rings** fanpage that allows users to browse all characters from the epic trilogy and choose their favorites.  Designed to be an informational app for fans to interact with and post comments about their sexy characters.
+A **Lord of the Rings** fanpage that allows users to browse all characters from the epic trilogy and build a team.  The design is meant for fans to explore their favorite characters and build their own team for the mission to destroy The One Ring. Users are able to comment on their choices and share their story.
 
 
 
@@ -7,9 +7,9 @@ A **Lord of the Rings** fanpage that allows users to browse all characters from 
 
 ## User Story
 As a user, I want to be able to:  
-- *login the app and see all characters from LotR*  
+- *login the app and see all characters from LotR trilogy*  
 - *click on each character and see related details (quotes, name, race, gender, realm, and more)*  
-- *collect characters on my favorites page*  
+- *add characters to my team*  
 - *comment on my favorite characters*  
 - *see a collection of other users' comments*  
 
@@ -18,20 +18,46 @@ As a user, I want to be able to:
 2. Characters Main Page
 3. Characters Show Page
 4. Comments Page
+5. Team page
 
 ## Wireframes
 ![](/public/wireframe-01.png)  
 ![](/public/wireframe-02.png)  
 
+
+
 # Execution
 
 ## API
+Through this API, I am able to access characters' information from the epic trilogy such as their name, race, gender, height, hair, birth, death, quotes, and wiki url links for further details.  The idea is to get a better feel of each character from a profile before adding them to the team.
+```
+axios.get('https://the-one-api.herokuapp.com/v1/character', token)
+.then(results => {
+    let movieCharacters = results.data.docs;
+    res.render('characters', { movieCharacters })
+})
+```
+
 ## Database
+
+
 ## Routing
 
 
 
-# Conclusion
 
-## Technology
-## Final Thoughts
+# Conclusion  
+
+## Technology  
+> HTML, CSS, JavaScript, Node.js, Postman (API research)
+
+### API:  
+> [Lord of the Rings](https://the-one-api.herokuapp.com/)  
+
+### NPMs:  
+> Axios, Bcrypt, EJS, EJS Layouts, Express, Flash, Helmet, Method Override, Morgan, Passport, Sequelize, Sessions  
+
+## Final Thoughts  
+API does not contain picture of characters.  
+Characters are not arranged in any particular order.  
+Information was scattered across different scopes of the API which meant nested requests and loops.  
