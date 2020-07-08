@@ -111,17 +111,22 @@ characters.forEach( (element, index) => {
 
 // MODELS
 
-favorite
+teammate
 --------
 name: string (name from API)
 charId: string (id from API)
 userId: integer (is this necessary?)
 
+sequelize model:create --name teammate --attributes name:string,charId:string
+
+
+
+
 comment
 -------
 userId: integer
 
-
+sequelize model:create --name comment --attributes 
 
 
 ========================================
@@ -131,6 +136,15 @@ userId: integer
 
 character's {
     name
-    _id
-
+    random quote
+    gender
+    birth
+    height
+    hair
+    spouse
+    death
+    wiki
+    
+    ADD TO TEAM
+    BACK TO CHARACTERS
 }

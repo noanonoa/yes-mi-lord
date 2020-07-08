@@ -73,7 +73,7 @@ app.get('/profile', isLoggedIn, function(req, res) {
 //INCLUDE AUTH CONTROLLER
 app.use('/auth', require('./controllers/auth'));
 app.use('/characters', require('./controllers/characters'));
-
+app.use('/team', require('./controllers/team'));
 
 
 //INITIALIZE app ON PORT
