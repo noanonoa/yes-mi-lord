@@ -34,6 +34,7 @@ router.get('/:name', (req, res) => {
     })
 })
 
+//CREATE A TEAM
 router.post('/', (req, res) => {
     db.team.findOrCreate({
         where: {
@@ -44,6 +45,7 @@ router.post('/', (req, res) => {
         }
     })
     .then(([team, created]) => {
+//IF TEAM IS FOUND, FLASH A MESSAGE
         res.redirect('/team')
     })
 })
