@@ -49,22 +49,28 @@ router.get('/', (req, res) => {
 
 //CHARACTER DETAILS
 router.get('/:id', (req, res) => {
-    let characterId = req.params.id
-    axios.get(`${CHARACTER_URL}/${characterId}`, token)
-    
-    .then((results) => {
-//PASS CHARACTER INFORMATION & CHARACTER QUOTES
-        let characterResponse = results.data
-        axios.get(`${CHARACTER_URL}/${characterId}/quote`, token)
-
+    db.team.findAll()
+    .then(teams => {
+        console.log('🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥')
+        console.log(teams)
+        let characterId = req.params.id
+        axios.get(`${CHARACTER_URL}/${characterId}`, token)
+        
         .then((results) => {
-            let characterQuotes = results.data.docs;
-//RANDOMIZE QUOTE FOR CHARACTER FLAVOR
-            let randomQuote = characterQuotes[randomInt(0, characterQuotes.length - 1)].dialog;
-
-            res.render('show', {
-                character: characterResponse,
-                randomQuote
+    //PASS CHARACTER INFORMATION & CHARACTER QUOTES
+            let characterResponse = results.data
+            axios.get(`${CHARACTER_URL}/${characterId}/quote`, token)
+    
+            .then((results) => {
+                let characterQuotes = results.data.docs;
+    //RANDOMIZE QUOTE FOR CHARACTER FLAVOR
+                let randomQuote = characterQuotes[randomInt(0, characterQuotes.length - 1)].dialog;
+    
+                res.render('show', {
+                    character: characterResponse,
+                    randomQuote,
+                    teams
+                })
             })
         })
     }).catch(err => console.log(err))

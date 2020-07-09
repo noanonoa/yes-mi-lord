@@ -23,14 +23,20 @@ router.get('/', (req, res) => {
 router.get('/:name', (req, res) => {
     db.team.findOne({
         where: {
-            name: req.param.name
+            name: req.params.name
         }
     })
     .then(team => {
-        res.render('teammates', {
-            team
+        db.teammate.findAll({
+            where: {
+                teamId: team.id
+            }
         })
-
+        .then(teammates => {
+            res.render('teammates', {
+                teammates
+            })
+        })
     })
 })
 
@@ -50,6 +56,21 @@ router.post('/', (req, res) => {
     })
 })
 
+router.post('/addTeammate', (req, res) => {
+    db.teammate.findOrCreate({
+        where: {
+            name: req.body.name
+        },
+        defaults: {
+            name: req.body.name,
+            charId: req.body.charId,
+            teamId: req.body.teamName
+        }
+    })
+    .then(([teammate, created]) => {
+        res.redirect('/team')
+    })
+})
 
 
 

@@ -1,14 +1,25 @@
 <h1>TEAMMATES</h1>
 
+<% teammates.forEach(teammate => { %>
+    <div>
+        <h4>
+            <a href="/characters/<%= teammate.charId %>"><%= teammate.name %></a>
+        </h4>
+    </div>
+<% }) %>
+
 <form action="" id="teamDescription" method="POST">
     <label for="teamFlavor">About This Fellowship:</label>
     <div>
-        <textarea name="teamDescription" id="teamFlavor" cols="30" rows="10" form="teamDescription" placeholder="You have been chosen..."></textarea>
+        <textarea name="teamDescription" id="teamFlavor" form="teamDescription" cols="30" rows="10" placeholder="You have been chosen..."></textarea>
+    </div>
+    <div>
+        <input type="submit">
     </div>
 </form>
 
 <br />
 
 <div>
-    <a href="/team"><< team</a>
+    <a href="/team">< team</a>
 </div>

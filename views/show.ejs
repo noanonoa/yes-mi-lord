@@ -2,10 +2,16 @@
 <h1>
     <%= character.name %>
     <span style="font-size: 12px">
-        <form action="/team" method="POST" style="display: inline-block">
+        <form id="addToTeam" action="/team/addTeammate" method="POST" style="display: inline-block">
             <input type="text" name="name" value="<%= character.name %>" hidden>
             <input type="text" name="charId" value="<%= character._id %>" hidden>
-            <input type="submit" value="add to team">
+            <select name="teamName" id="teamName" form="addToTeam">
+                <option value="">select a team</option>
+                <% teams.forEach(team => { %>
+                    <option value="<%= team.id %>"><%= team.name %></option>
+                <% }) %>
+            </select>
+            <input type="submit" value="add">
         </form>
     </span>
 </h1>

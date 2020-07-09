@@ -190,6 +190,5 @@ router.post('/', (req, res) => {
 
 // QUESTIONS
 
-- [ ] 
-- [ ] routes or controllers???
-- [ ] form action "..."   can be written anywhere?
+- [ ] How to add a teammate to a specific team?
+- [ ] One character can belong to many teams
