@@ -1,13 +1,23 @@
 <h1>
-    READY FOR ACTION!
+    TEAMS
 </h1>
 
-<% teammates.forEach(teammate => { %>
+<form action="/team" method="POST" autocomplete="off">
+    <input type="text" name="name" placeholder="create a team">
+    <input type="submit" value="add">
+</form>
+
+<% teams.forEach(team => { %>
     <div>
-        <h1>
-            <a href="/characters/<%= teammate.charId %>"><%= teammate.name %></a>
-        </h1>
+        <h4>
+            <a href="/team/<%= team.name %>"><%= team.name %></a>
+        </h4>
     </div>
 <% }) %>
+
+
+
+
+<br />
 
 <a href="/characters"><< back</a>

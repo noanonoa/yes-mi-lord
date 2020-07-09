@@ -6,27 +6,44 @@ const axios = require('axios');
 const { get } = require('./auth');
 
 
-
+/****************************
+ ********** ROUTES **********
+ ****************************/
+//TEAMS PAGE
 router.get('/', (req, res) => {
-    db.teammate.findAll()
-    .then(teammates => {
+    db.team.findAll()
+    .then(teams => {
         res.render('team', {
-            teammates
+            teams
         })
     })
 })
 
-router.post('/', (req, res) => {
-    db.teammate.findOrCreate({
+//TEAM DETAILS
+router.get('/:name', (req, res) => {
+    db.team.findOne({
         where: {
-            charId: req.body.charId
+            name: req.param.name
+        }
+    })
+    .then(team => {
+        res.render('teammates', {
+            team
+        })
+
+    })
+})
+
+router.post('/', (req, res) => {
+    db.team.findOrCreate({
+        where: {
+            name: req.body.name
         },
         defaults: {
             name: req.body.name,
-            charId: req.body.charId
         }
     })
-    .then(([teammate, created]) => {
+    .then(([team, created]) => {
         res.redirect('/team')
     })
 })

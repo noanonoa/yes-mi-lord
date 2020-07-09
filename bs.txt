@@ -149,6 +149,40 @@ character's {
     BACK TO CHARACTERS
 }
 
+// TEAM DETAILS
+
+<% teammates.forEach(teammate => { %>
+    <div>
+        <h1>
+            <a href="/characters/<%= teammate.charId %>"><%= teammate.name %></a>
+        </h1>
+    </div>
+<% }) %>
+
+
+router.get('/', (req, res) => {
+    db.teammate.findAll()
+    .then(teammates => {
+        res.render('team', {
+            teammates
+        })
+    })
+})
+
+router.post('/', (req, res) => {
+    db.teammate.findOrCreate({
+        where: {
+            charId: req.body.charId
+        },
+        defaults: {
+            name: req.body.name,
+            charId: req.body.charId
+        }
+    })
+    .then(([teammate, created]) => {
+        res.redirect('/team')
+    })
+})
 
 
 ========================================
