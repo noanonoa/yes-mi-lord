@@ -1,3 +1,13 @@
 <h1>
     READY FOR ACTION!
 </h1>
+
+<% teammates.forEach(teammate => { %>
+    <div>
+        <h1>
+            <a href="/characters/<%= teammate.charId %>"><%= teammate.name %></a>
+        </h1>
+    </div>
+<% }) %>
+
+<a href="/characters"><< back</a>

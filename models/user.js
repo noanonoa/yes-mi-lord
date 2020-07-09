@@ -57,6 +57,7 @@ module.exports = function(sequelize, DataTypes) {
 
     user.associate = function(models) {
         //TODO: ANY USER ASSOCIATIONS YOU WANT
+        models.user.hasMany(models.team)
     }
 
     //THIS BLOCK OF CODE IS MIND-BLOWING.  WHAT DOES IT MEAN!?

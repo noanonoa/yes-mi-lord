@@ -115,18 +115,18 @@ teammate
 --------
 name: string (name from API)
 charId: string (id from API)
-userId: integer (is this necessary?)
+teamId: integer (is this necessary?)
 
-sequelize model:create --name teammate --attributes name:string,charId:string
-
-
+sequelize model:create --name teammate --attributes name:string,charId:string,teamId:integer
 
 
-comment
--------
+team
+----
+comment: text
+name: string
 userId: integer
 
-sequelize model:create --name comment --attributes 
+sequelize model:create --name team --attributes comment:text,name:string,userId:integer
 
 
 ========================================
@@ -148,3 +148,14 @@ character's {
     ADD TO TEAM
     BACK TO CHARACTERS
 }
+
+
+
+========================================
+========================================
+
+// QUESTIONS
+
+- [ ] 
+- [ ] routes or controllers???
+- [ ] form action "..."   can be written anywhere?

@@ -1,7 +1,13 @@
 <div>
 <h1>
-    <%= (character.name) %>
-    <span style="font-size: 12px"><a href="">add to team</a></span>
+    <%= character.name %>
+    <span style="font-size: 12px">
+        <form action="/team" method="POST" style="display: inline-block">
+            <input type="text" name="name" value="<%= character.name %>" hidden>
+            <input type="text" name="charId" value="<%= character._id %>" hidden>
+            <input type="submit" value="add to team">
+        </form>
+    </span>
 </h1>
 </div>
 

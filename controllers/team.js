@@ -8,12 +8,28 @@ const { get } = require('./auth');
 
 
 router.get('/', (req, res) => {
-    // db.teammate.findAll()
-
-    res.render('team')
+    db.teammate.findAll()
+    .then(teammates => {
+        res.render('team', {
+            teammates
+        })
+    })
 })
 
-
+router.post('/', (req, res) => {
+    db.teammate.findOrCreate({
+        where: {
+            charId: req.body.charId
+        },
+        defaults: {
+            name: req.body.name,
+            charId: req.body.charId
+        }
+    })
+    .then(([teammate, created]) => {
+        res.redirect('/team')
+    })
+})
 
 
 
