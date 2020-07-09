@@ -49,10 +49,12 @@ router.get('/', (req, res) => {
 
 //CHARACTER DETAILS
 router.get('/:id', (req, res) => {
-    db.team.findAll()
+    db.team.findAll({
+        order: [
+            ['id', 'ASC']
+        ]
+    })
     .then(teams => {
-        console.log('🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥')
-        console.log(teams)
         let characterId = req.params.id
         axios.get(`${CHARACTER_URL}/${characterId}`, token)
         

@@ -1,4 +1,8 @@
-<h1>TEAMMATES</h1>
+<h1><%= team.name %></h1>
+
+<% if (team.comment) { %>
+    <p><%= team.comment %></p>
+<% } %>
 
 <% teammates.forEach(teammate => { %>
     <div>
@@ -8,15 +12,17 @@
     </div>
 <% }) %>
 
-<form action="" id="teamDescription" method="POST">
-    <label for="teamFlavor">About This Fellowship:</label>
-    <div>
-        <textarea name="teamDescription" id="teamFlavor" form="teamDescription" cols="30" rows="10" placeholder="You have been chosen..."></textarea>
-    </div>
-    <div>
-        <input type="submit">
-    </div>
-</form>
+<% if (!team.comment) { %>
+    <form action="/team/<%= team.name %>/?_method=PUT" id="teamDescription" method="POST">
+        <label for="teamFlavor">About This Fellowship:</label>
+        <div>
+            <textarea name="teamDescription" id="teamFlavor" form="teamDescription" cols="30" rows="10" placeholder="You have been chosen..."></textarea>
+        </div>
+        <div>
+            <input type="submit">
+        </div>
+    </form>
+<% } %>
 
 <br />
 

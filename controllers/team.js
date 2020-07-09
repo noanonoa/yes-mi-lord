@@ -4,14 +4,21 @@ const router = express.Router();
 const db = require('../models');
 const axios = require('axios');
 const { get } = require('./auth');
+const methodOverride = require('method-override');
 
+router.use(methodOverride('_method'));
 
 /****************************
  ********** ROUTES **********
  ****************************/
 //TEAMS PAGE
 router.get('/', (req, res) => {
-    db.team.findAll()
+    db.team.findAll({
+        order: [
+            ['id', 'ASC']
+        ]
+    }
+    )
     .then(teams => {
         res.render('team', {
             teams
@@ -21,12 +28,14 @@ router.get('/', (req, res) => {
 
 //TEAM DETAILS
 router.get('/:name', (req, res) => {
+//FIND A TEAM BY ITS NAME
     db.team.findOne({
         where: {
             name: req.params.name
         }
     })
     .then(team => {
+//LIST ALL TEAMMATES BY TEAM'S ID
         db.teammate.findAll({
             where: {
                 teamId: team.id
@@ -34,7 +43,8 @@ router.get('/:name', (req, res) => {
         })
         .then(teammates => {
             res.render('teammates', {
-                teammates
+                teammates,
+                team
             })
         })
     })
@@ -56,15 +66,17 @@ router.post('/', (req, res) => {
     })
 })
 
+//ADD TEAMMATE WITH SPECIFIC TEAM ID
 router.post('/addTeammate', (req, res) => {
     db.teammate.findOrCreate({
         where: {
-            name: req.body.name
+            name: req.body.name,
+            teamId: req.body.teamList
         },
         defaults: {
             name: req.body.name,
             charId: req.body.charId,
-            teamId: req.body.teamName
+            teamId: req.body.teamList
         }
     })
     .then(([teammate, created]) => {
@@ -72,7 +84,32 @@ router.post('/addTeammate', (req, res) => {
     })
 })
 
+//UPDATE COMMENT ATTRIBUTE FOR TEAM DB
+router.put('/:name', (req, res) => {
+    db.team.update({
+        comment: req.body.teamDescription
+    },
+    {
+        where: {
+            name: req.params.name
+        }
+    })
+    .then(([results, updated]) => {
+        res.redirect(`/team/${req.params.name}`)
+    })
+})
 
+//DELETE TEAM
+router.delete('/:name', (req, res) => {
+    db.team.destroy({
+        where: {
+            name: req.params.name
+        }
+    })
+    .then(
+        res.redirect('/team')
+    )
+})
 
 
 module.exports = router;

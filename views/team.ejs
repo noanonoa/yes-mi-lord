@@ -12,5 +12,8 @@
         <h4>
             <a href="/team/<%= team.name %>"><%= team.name %></a>
         </h4>
+        <form action="/team/<%= team.name %>/?_method=DELETE" method="POST">
+            <input type="submit" value="delete">
+        </form>
     </div>
 <% }) %>
