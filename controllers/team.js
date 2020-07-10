@@ -65,9 +65,8 @@ router.post('/', (req, res) => {
         }
     })
     .then(([team, created]) => {
-        console.log('💍💍💍💍💍💍💍💍💍💍💍💍💍💍💍💍💍💍💍💍💍')
-        console.log(team)
 //IF TEAM IS FOUND, FLASH A MESSAGE
+        req.flash('error', 'This team already exists!')
         res.redirect('/team')
     })
 })
@@ -127,10 +126,10 @@ router.put('/remove/comment/:id', (req, res) => {
 })
 
 //DELETE TEAM
-router.delete('/:name', (req, res) => {
+router.delete('/:id', (req, res) => {
     db.team.destroy({
         where: {
-            name: req.params.name
+            id: req.params.id
         }
     })
     .then(

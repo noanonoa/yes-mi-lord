@@ -6,6 +6,9 @@
     <input type="text" name="name" placeholder="create a team">
     <input type="submit" value="add">
 </form>
+<div style="width:200px">
+    <%- include('./partials/alerts') %>
+</div>
 
 
 <% teams.forEach(team => { %>
@@ -13,7 +16,7 @@
         <h4>
             <a href="/team/<%= team.name %>"><%= team.name %></a>
         </h4>
-        <form action="/team/<%= team.name %>/?_method=DELETE" method="POST">
+        <form action="/team/<%= team.id %>/?_method=DELETE" method="POST">
             <input type="submit" value="delete">
         </form>
     </div>

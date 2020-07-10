@@ -50,6 +50,9 @@ router.get('/', (req, res) => {
 //CHARACTER DETAILS
 router.get('/:id', (req, res) => {
     db.team.findAll({
+        where: {
+            userId: req.user.id
+        },
         order: [
             ['id', 'ASC']
         ]

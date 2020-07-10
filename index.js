@@ -72,10 +72,16 @@ app.get('/profile', isLoggedIn, function(req, res) {
 
 app.get('/comments', (req, res)=> {
     db.user.findAll({
-        include: [db.team]
+        include: [db.team],
+        order: [
+            ['teams', 'comment', 'DESC']
+        ]
     })
     .then(users => {
-        res.render('comments', users)
+        console.log(users)
+        res.render('comments', {
+            users
+        })
     })
 })
 
