@@ -70,6 +70,15 @@ app.get('/profile', isLoggedIn, function(req, res) {
     res.render('profile');
 })
 
+app.get('/comments', (req, res)=> {
+    db.user.findAll({
+        include: [db.team]
+    })
+    .then(users => {
+        res.render('comments', users)
+    })
+})
+
 
 //INCLUDE AUTH CONTROLLER
 app.use('/auth', require('./controllers/auth'));

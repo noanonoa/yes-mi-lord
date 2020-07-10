@@ -14,6 +14,9 @@ router.use(methodOverride('_method'));
 //TEAMS PAGE
 router.get('/', (req, res) => {
     db.team.findAll({
+        where: {
+            userId: req.user.dataValues.id
+        },
         order: [
             ['id', 'ASC']
         ]
@@ -58,9 +61,12 @@ router.post('/', (req, res) => {
         },
         defaults: {
             name: req.body.name,
+            userId: req.user.dataValues.id
         }
     })
     .then(([team, created]) => {
+        console.log('💍💍💍💍💍💍💍💍💍💍💍💍💍💍💍💍💍💍💍💍💍')
+        console.log(team)
 //IF TEAM IS FOUND, FLASH A MESSAGE
         res.redirect('/team')
     })
