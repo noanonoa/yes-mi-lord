@@ -80,7 +80,7 @@ router.post('/addTeammate', (req, res) => {
         }
     })
     .then(([teammate, created]) => {
-        res.redirect('/team')
+        res.redirect('/characters')
     })
 })
 
@@ -111,5 +111,15 @@ router.delete('/:name', (req, res) => {
     )
 })
 
+router.delete('/deleteTeammate/:id', (req, res) => {
+    db.teammate.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(
+        res.redirect('back')
+    )
+})
 
 module.exports = router;
