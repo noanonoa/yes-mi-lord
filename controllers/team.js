@@ -85,18 +85,39 @@ router.post('/addTeammate', (req, res) => {
 })
 
 //UPDATE COMMENT ATTRIBUTE FOR TEAM DB
-router.put('/:name', (req, res) => {
+router.put('/comment/:id', (req, res) => {
     db.team.update({
         comment: req.body.teamDescription
     },
     {
         where: {
-            name: req.params.name
+            id: req.params.id
         }
     })
     .then(([results, updated]) => {
-        res.redirect(`/team/${req.params.name}`)
+        db.team.findOne({
+            where: {
+                id: req.params.id
+            }
+        }).then(team => {
+            res.redirect(`/team/${team.name}`)
+        })
     })
+})
+
+//DELETE COMMENT FROM TEAM
+router.put('/remove/comment/:id', (req, res) => {
+    db.team.update({
+        comment: null
+    },
+    {
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(
+        res.redirect(`back`)
+    )
 })
 
 //DELETE TEAM
@@ -111,7 +132,9 @@ router.delete('/:name', (req, res) => {
     )
 })
 
-router.delete('/deleteTeammate/:id', (req, res) => {
+//DELETE TEAMMATE FROM TEAM
+router.delete('/teammate/:id', (req, res) => {
+    console.log(req.user)
     db.teammate.destroy({
         where: {
             id: req.params.id
@@ -121,5 +144,8 @@ router.delete('/deleteTeammate/:id', (req, res) => {
         res.redirect('back')
     )
 })
+
+
+
 
 module.exports = router;
