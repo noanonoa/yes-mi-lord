@@ -1,11 +1,16 @@
-<form action="/auth/login" method="POST">
-    <div class="form-group">
-        <label for="authEmail">Email</label>
-        <input id="authEmail" class="form-control" type="email" name="email">
-    </div>
-    <div class="form-group">
-        <label for="authPassword">Password</label>
-        <input id="authPassword" class="form-control" type="password" name="password">
-    </div>
-    <input type="submit">
-</form>
+<div class="login-form font-center">
+    <form action="/auth/login" method="POST">
+        <div class="input-container">
+            <div class="form-group">
+                <label for="authEmail">Email</label>
+                <input id="authEmail" class="login-input" type="email" name="email">
+            </div>
+            <div class="form-group">
+                <label for="authPassword">Password</label>
+                <input id="authPassword" class="login-input" type="password" name="password">
+            </div>
+        </div>
+        <input class="sub-button" type="submit">
+        <%- include('../partials/alerts') %>
+    </form>
+</div>

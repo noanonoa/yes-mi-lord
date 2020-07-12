@@ -1,10 +1,12 @@
-<h1><%= team.name %></h1>
+<div class="font-center">
+    <h1><%= team.name %></h1>
+</div>
 
 <div class="char-container">
     <% teammates.forEach(teammate => { %>
         <div class="char">
             <a class="char-img" href="/characters/<%= teammate.charId %>">
-                <img src="http://placekitten.com/150/150" alt="img placer">
+                <img class="avatar" src="https://upload.wikimedia.org/wikipedia/commons/2/24/Missing_avatar.svg" alt="img placer">
             </a>
             <h4 class="char-name">
                 <a href="/characters/<%= teammate.charId %>"><%= teammate.name %></a>

@@ -58,7 +58,7 @@ router.post('/login', function(req, res, next) {
     passport.authenticate('local', function(error, user, info) {
         // IF NO USER AUTHENTICATED
         if (!user) {
-            req.flash('error', 'Invalid username or password');
+            req.flash('error', 'Invalid email or password');
             console.log(`💩butts`)
             return res.redirect('/auth/login');
         }

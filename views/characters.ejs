@@ -1,24 +1,24 @@
-<h1>CHARACTERS</h1>
 
-<% let alphabeticalOrder = [] %>
-<!-- <%# let charNum = 1 %> -->
-<% characters.forEach(function(character) { %>
-    <% if (character.name !== 'MINOR_CHARACTER') { %>
-        <% alphabeticalOrder.push({"name": character.name, "wikiUrl":character.wikiUrl, "charId": character._id}) %>
-    <% } %>
-<% }) %>
+<div class="all-characters">
+    <% let alphabeticalOrder = [] %>
+    <!-- <%# let charNum = 1 %> -->
+    <% characters.forEach(function(character) { %>
+        <% if (character.name !== 'MINOR_CHARACTER') { %>
+            <% alphabeticalOrder.push({"name": character.name, "wikiUrl":character.wikiUrl, "charId": character._id}) %>
+        <% } %>
+    <% }) %>
 
-<% alphabeticalOrder.sort(function(a, b) { %>
-    <% if (a.name < b.name) { return -1; } %>
-    <% if (a.name > b.name) { return 1; } %>
-    <% return 0; %>    
-<% }) %>
+    <% alphabeticalOrder.sort(function(a, b) { %>
+        <% if (a.name < b.name) { return -1; } %>
+        <% if (a.name > b.name) { return 1; } %>
+        <% return 0; %>    
+    <% }) %>
 
-<% alphabeticalOrder.forEach(element => { %>
-    <div class="characters">
-        <!-- <%# = element.index = charNum %> -->
-        <!-- <%# charNum++ %> -->
-        <a href="/characters/<%= element.charId %>"><%= element.name %></a>
-    </div>
-<% }) %>
-
+    <% alphabeticalOrder.forEach(element => { %>
+        <div class="characters">
+            <!-- <%# = element.index = charNum %> -->
+            <!-- <%# charNum++ %> -->
+            <a href="/characters/<%= element.charId %>"><%= element.name %></a>
+        </div>
+    <% }) %>
+</div>
