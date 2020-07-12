@@ -2,6 +2,11 @@
     font-family: Helvetica;
 }
 
+div.container {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 50px;
+}
 body {
     background: url('bg.jpg') no-repeat center center fixed;
     background-size: cover;
@@ -9,32 +14,6 @@ body {
     margin: 0;
     color: white;
 }
-textarea {
-    background-color: rgba(255,200,120, .5);
-    resize: none;
-    color: rgba(0,0,0)
-}
-div.container {
-    margin-left: 20px;
-}
-div a {
-    color: rgba(255, 205, 130);
-    text-decoration: none;
-}
-h4 {
-    margin: 0;
-}
-.team-row {
-    /* background-color: red; */
-    margin-top: 10px;
-}
-.team-name,
-.del-form {
-    display: inline-block;
-}
-
-
-
 /* NAV BAR */
 nav {
     background-color: rgba(0,0,0,.5);
@@ -60,6 +39,7 @@ nav > a::before {
     height: 2px;
     bottom: 0;
     left: 0;
+    top: 20px;
     background-color: rgba(255,200,120);
     visibility: hidden;
     transform: scaleX(0);
@@ -69,6 +49,39 @@ nav > a:hover::before {
     visibility: visible;
     transform: scaleX(1);
 }
+
+
+
+
+
+textarea {
+    background-color: rgba(255,200,120, .5);
+    resize: none;
+    color: rgba(0,0,0)
+}
+
+div a {
+    color: rgba(255, 205, 130);
+    text-decoration: none;
+    position: relative;
+}
+h4 {
+    margin: 0;
+}
+.team-row {
+    /* background-color: red; */
+    margin-top: 10px;
+}
+.team-name,
+.del-form {
+    display: inline-block;
+}
+div.back-btn {
+    text-align: center;
+}
+
+
+
 
 /* PROFILE */
 .profile {
@@ -102,7 +115,7 @@ nav > a:hover::before {
     background-color: rgba(0,0,0, 0.2);
     color: rgba(255,200,120);
 }
-.del-btn {
+.team-del-btn {
     margin-left: 10px;
     padding: 5px;
     border-radius: 10px;
@@ -113,6 +126,80 @@ nav > a:hover::before {
 
 
 
+
+
+/* TEAMMATES */
+.char-container {
+    display: flex;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: rgba(0,0,0, .5);
+    border: 2px solid black;
+}
+.char {
+    width: 250px;
+    height: 250px;
+    margin-top: 10px;
+    text-align: center;
+    flex-basis: 30%
+}
+.char img {
+    border-radius: 100%;
+    width: 150px;
+    height: 150px;
+    
+}
+.char-name {
+    margin-top: 5px;
+}
+.char-del-form {
+    padding-top: 20px;
+}
+.del-btn {
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: rgba(0,0,0, 0);
+    color: rgba(255,200,120);
+}
+.comment {
+    width: 90%;
+    margin: 0 auto;
+}
+div.char a.char-img:hover + .char-name a::before {
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+
+
+div a:hover {
+    color: rgba(255,200,120);
+}
+.team-name a::before,
+.char-name a::before,
+.back-btn a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    top: 20px;
+    background-color: rgba(255,200,120);
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.1s ease-in-out 0s;
+}
+div a:hover::before {
+    visibility: visible;
+    transform: scaleX(1);
+}
 
 input:focus {
     outline-width: 0;
@@ -126,10 +213,9 @@ textarea:focus {
 textarea::placeholder {
     color: rgba(0,0,0, .5);
 }
-.team-form-button:hover {
-    background-color: rgba(0,0,0);
-}
-.del-btn:hover {
+.team-form-button:hover,
+.del-btn:hover,
+.char-del-btn:hover {
     background-color: rgba(0,0,0);
 }
 

@@ -1,36 +1,42 @@
 <h1><%= team.name %></h1>
 
-<% teammates.forEach(teammate => { %>
-    <div>
-        <h4>
-            <a href="/characters/<%= teammate.charId %>"><%= teammate.name %></a>
-        </h4>
-        <form action="/team/teammate/<%= teammate.id %>/?_method=DELETE" method="POST">
-            <input type="submit" value="remove">
-        </form>
-    </div>
-<% }) %>
+<div class="char-container">
+    <% teammates.forEach(teammate => { %>
+        <div class="char">
+            <a class="char-img" href="/characters/<%= teammate.charId %>">
+                <img src="http://placekitten.com/150/150" alt="img placer">
+            </a>
+            <h4 class="char-name">
+                <a href="/characters/<%= teammate.charId %>"><%= teammate.name %></a>
+            </h4>
+            <form class="del-form char-del-form" action="/team/teammate/<%= teammate.id %>/?_method=DELETE" method="POST">
+                <input class="del-btn" type="submit" value="remove">
+            </form>
+        </div>
+    <% }) %>
+</div>
 
 <h5>About This Fellowship:</h5>
-<% if (team.comment) { %>
-    <p><%= team.comment %></p>
-    <form action="/team/remove/comment/<%= team.id %>/?_method=PUT" method="POST">
-        <input type="submit" value="delete">
-    </form>
-<% } %>
-<% if (!team.comment) { %>
-    <form action="/team/comment/<%= team.id %>/?_method=PUT" id="teamDescription" method="POST">
-        <div>
-            <textarea name="teamDescription" id="teamFlavor" form="teamDescription" cols="30" rows="10" placeholder="You have been chosen..."></textarea>
-        </div>
-        <div>
-            <input type="submit">
-        </div>
-    </form>
-<% } %>
-
+<div class="comment">
+    <% if (team.comment) { %>
+        <p><%= team.comment %></p>
+        <form class="del-form" action="/team/remove/comment/<%= team.id %>/?_method=PUT" method="POST">
+            <input class="del-btn" type="submit" value="delete">
+        </form>
+    <% } %>
+    <% if (!team.comment) { %>
+        <form action="/team/comment/<%= team.id %>/?_method=PUT" id="teamDescription" method="POST">
+            <div>
+                <textarea name="teamDescription" id="teamFlavor" form="teamDescription" cols="30" rows="10" placeholder="You have been chosen..."></textarea>
+            </div>
+            <div>
+                <input class="del-btn" type="submit">
+            </div>
+        </form>
+    <% } %>
+</div>
 <br />
 
-<div>
-    <a href="/team">< team</a>
+<div class="back-btn">
+    <a href="/team">< back to team</a>
 </div>
