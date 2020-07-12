@@ -4,24 +4,20 @@
         <title>Yes Mi Lord</title>
         <link rel="stylesheet" href="/style.css">
     </head>
-    <body>
-        <header>
-            <nav>
-                <% if (currentUser) { %>
-                    <a href="/auth/logout">Logout</a>
-                    <a href="/profile">Profile</a>
-                    <a href="/team">Team</a>
-                    <a href="/characters">Characters</a>
-                    <a href="/comments">Comments</a>
-                <% } else { %>
-                    <a href="/auth/register">Register</a>
-                    <a href="/auth/login">Login</a>
-                    <a href="/team">Team</a>
-                    <a href="/characters">Characters</a>
-                    <a href="/comments">Comments</a>
-                <% } %>
-            </nav>
-        </header>
+    <body class="main">
+        <nav>
+            <% if (currentUser) { %>
+                <a href="/auth/logout">Logout</a>
+                <a href="/profile">Profile</a>
+                <a href="/team">Team</a>
+                <a href="/characters">Characters</a>
+                <a href="/comments">Comments</a>
+            <% } else { %>
+                <a href="/auth/login">Login</a>
+                <a href="/auth/register">Register</a>
+                <a href="/comments">Comments</a>
+            <% } %>
+        </nav>
         <div class="container">
             <%- body %>
         </div>

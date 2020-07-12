@@ -2,6 +2,143 @@
     font-family: Helvetica;
 }
 
+body {
+    background: url('bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+    margin: 0;
+    color: white;
+}
+textarea {
+    background-color: rgba(255,200,120, .5);
+    resize: none;
+    color: rgba(0,0,0)
+}
+div.container {
+    margin-left: 20px;
+}
+div a {
+    color: rgba(255, 205, 130);
+    text-decoration: none;
+}
+h4 {
+    margin: 0;
+}
+.team-row {
+    /* background-color: red; */
+    margin-top: 10px;
+}
+.team-name,
+.del-form {
+    display: inline-block;
+}
+
+
+
+/* NAV BAR */
+nav {
+    background-color: rgba(0,0,0,.5);
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+}
+nav > a {
+    color: rgba(255,200,120);
+    text-decoration: none;
+    margin-left: 20px;
+    position: relative;
+}
+nav> a:hover {
+    color: rgba(255,200,120);
+}
+nav > a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255,200,120);
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.15s ease-in-out 0s;
+}
+nav > a:hover::before {
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+/* PROFILE */
+.profile {
+    color: rgba(255,200,120);
+    margin-left: 20px;
+}
+
+/* TEAM */
+.team-form {
+    height: 40px;
+    margin-top: 30px;
+}
+.team-form-input {
+    width: 200px;
+    height: 40px;
+    padding: 0;
+    padding-left: 10px;
+    border: 0;
+    font-size: 18px;
+    border-radius: 10px;
+    background-color: rgba(255,200,120, .5);
+    color: rgba(0,0,0);
+}
+.team-form-button {
+    width: 50px;
+    height: 40px;
+    margin-left: 10px;
+    padding: 0;
+    border-radius: 10px;
+    vertical-align: top;
+    background-color: rgba(0,0,0, 0.2);
+    color: rgba(255,200,120);
+}
+.del-btn {
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: rgba(0,0,0, 0.5);
+    color: rgba(255,200,120);
+}
+
+
+
+
+
+input:focus {
+    outline-width: 0;
+}
+input::placeholder {
+    color: rgba(0,0,0, .5);
+}
+textarea:focus {
+    outline-width: 0;
+}
+textarea::placeholder {
+    color: rgba(0,0,0, .5);
+}
+.team-form-button:hover {
+    background-color: rgba(0,0,0);
+}
+.del-btn:hover {
+    background-color: rgba(0,0,0);
+}
+
+
+
+
+
+
+
 .lotr-left {
     display: flex;
     flex-direction: column;

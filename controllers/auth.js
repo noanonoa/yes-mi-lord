@@ -11,7 +11,7 @@ const passport = require('../config/ppConfig');
 
 //REGISTER GET ROUTE
 router.get('/register', function(req, res) {
-    res.render('auth/register');
+    res.render('index');
 })
 //REGISTER POST ROUTE
 router.post('/register', function(req, res) {

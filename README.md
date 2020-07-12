@@ -1,6 +1,7 @@
 # Yes Mi Lord
 A **Lord of the Rings** fanpage that allows users to browse all characters from the epic trilogy and build a team.  The design is meant for fans to explore their favorite characters and build their own team for the mission to destroy The One Ring. Users are able to comment on their choices and share their story.
 
+link here: https://yes-mi-lord.herokuapp.com/
 
 
 # Planning
@@ -56,6 +57,9 @@ axios.get('https://the-one-api.herokuapp.com/v1/character', token)
 
 ### NPMs:  
 > Axios, Bcrypt, EJS, EJS Layouts, Express, Flash, Helmet, Method Override, Morgan, Passport, Sequelize, Sessions  
+
+## Resource  
+- background image: [link](https://www.nathanprats.com/wp-content/uploads/2018/12/Lord-of-the-rings.jpg)
 
 ## Final Thoughts  
 API does not contain picture of characters.  
