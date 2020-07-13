@@ -158,100 +158,6 @@ nav > a:hover::before {
 
 
 
-/* PROFILE */
-.profile {
-    color: rgba(255,200,120);
-    margin-left: 20px;
-}
-
-/* TEAM */
-.team-form {
-    height: 40px;
-    margin-top: 30px;
-}
-.team-form-input {
-    width: 200px;
-    height: 40px;
-    padding: 0;
-    padding-left: 10px;
-    border: 0;
-    font-size: 18px;
-    border-radius: 10px;
-    background-color: rgba(255,200,120, .5);
-    color: rgba(0,0,0);
-}
-.team-form-button {
-    width: 50px;
-    height: 40px;
-    margin-left: 10px;
-    padding: 0;
-    border-radius: 10px;
-    vertical-align: top;
-    background-color: rgba(0,0,0, 0.2);
-    color: rgba(255,200,120);
-}
-.team-del-btn {
-    margin-left: 10px;
-    padding: 5px;
-    border-radius: 10px;
-    background-color: rgba(0,0,0, 0.5);
-    color: rgba(255,200,120);
-}
-
-/* TEAMMATES */
-h1.font-bold {
-    color:  rgba(255,200,120);
-}
-.char-container {
-    display: flex;
-    box-sizing: border-box;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 90%;
-    min-width: 800px;
-    margin: 0 auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    background-color: rgba(0,0,0, .5);
-    border: 2px solid black;
-    border-radius: 10px;
-}
-.char {
-    width: 250px;
-    height: 250px;
-    margin-top: 10px;
-    text-align: center;
-    flex-basis: 30%
-}
-.char img {
-    border-radius: 100%;
-    width: 150px;
-    height: 150px;
-    
-}
-.char-name {
-    margin-top: 5px;
-}
-.char-del-form {
-    padding-top: 20px;
-}
-.del-btn {
-    margin-top: 10px;
-    padding: 5px;
-    border-radius: 10px;
-    background-color: rgba(0,0,0, 0);
-    color: rgba(255,200,120);
-}
-.comment {
-    width: 90%;
-    margin: 0 auto;
-}
-
-/* CHARACTERS */
-div .all-characters {
-    margin-top: 50px;
-}
-
 /* LOGIN */
 label {
     position: absolute;
@@ -294,11 +200,196 @@ label {
 
 
 
+/* PROFILE */
+.profile {
+    color: rgba(255,200,120);
+    margin-left: 20px;
+}
+
+
+
+/* TEAM */
+.team-form {
+    height: 40px;
+    margin-top: 30px;
+}
+.team-form-input {
+    width: 200px;
+    height: 40px;
+    padding: 0;
+    padding-left: 10px;
+    border: 0;
+    font-size: 18px;
+    border-radius: 10px;
+    background-color: rgba(255,200,120, .5);
+    color: rgba(0,0,0);
+}
+.team-form-button {
+    width: 50px;
+    height: 40px;
+    margin-left: 10px;
+    padding: 0;
+    border-radius: 10px;
+    vertical-align: top;
+    background-color: rgba(0,0,0, 0.2);
+    color: rgba(255,200,120);
+}
+.team-del-btn {
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: rgba(0,0,0, 0.8);
+    color: rgba(255,200,120);
+}
+
+
+
+/* TEAMMATES */
+h1.font-bold {
+    color:  rgba(255,200,120);
+}
+.char-container {
+    display: flex;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 90%;
+    min-width: 800px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: rgba(0,0,0, .8);
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.char {
+    width: 250px;
+    height: 250px;
+    margin-top: 10px;
+    text-align: center;
+    flex-basis: 30%
+}
+.char img {
+    border-radius: 100%;
+    width: 150px;
+    height: 150px;
+    
+}
+.char-name {
+    margin-top: 5px;
+}
+.char-del-form {
+    padding-top: 20px;
+}
+.del-btn {
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: rgba(0,0,0, .5);
+    color: rgba(255,200,120);
+}
+.comment {
+    width: 90%;
+    margin: 0 auto;
+}
+
+
+
+/* CHARACTERS */
+div .all-characters {
+    margin-top: 50px;
+}
+
+
+
+/* SHOW */
+div.show-container {
+    background-color: rgba(0,0,0, .8);
+    color: rgba(255,200,120);
+    width: 90%;
+    max-width: 700px;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+
+}
+.show-character h1 {
+    margin: 0;
+    height: 40px;
+}
+span.charName {
+    font-size: 40px;
+    line-height: 40px;
+    vertical-align: middle;
+    margin: 0;
+}
+#addToTeam {
+    display: inline-block;
+}
+select {
+    width: 150px;
+    height: 40px;
+    padding: 0;
+    padding-left: 5px;
+    margin-left: 10px;
+    border: 0;
+    font-size: 18px;
+    border-radius: 10px;
+    background-color: rgba(255,200,120, .5);
+    color: rgba(0,0,0);
+    vertical-align: top;
+}
+div.show-character .del-btn {
+    width: 50px;
+    height: 40px;
+    margin: 0;
+    margin-left: 10px;
+    vertical-align: top;
+}
+div.show-content {
+    margin-top: 20px;
+    color: #fff;
+    line-height: 24px;
+}
+
+
+div.comments-container {
+    /* background-color: rgba(0,0,0, 0.5) */
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+p.username {
+    color: rgba(255,200,120);
+    font-size: 24px;
+}
+div.comments-box {
+    background-color: rgba(0,0,0, 0.8);
+    padding-left: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+div.comments-group {
+    /* background-color: rgba(0,0,0, 0.8); */
+}
+p.comments-team-name {
+    color: rgba(255,200,120);
+    display: inline-block;
+}
+p.comments-team-comment {
+    display: inline-block;
+}
+
+
+
 div a:hover {
     color: rgba(255,200,120);
 }
 .team-name a::before,
 .char-name a::before,
+.link-btn a::before,
 .back-btn a::before {
     content: '';
     position: absolute;

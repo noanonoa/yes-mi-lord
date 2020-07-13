@@ -1,78 +1,86 @@
-<div>
-<h1>
-    <%= character.name %>
-    <span style="font-size: 12px">
-        <form id="addToTeam" action="/team/addTeammate" method="POST" style="display: inline-block">
-            <input type="text" name="name" value="<%= character.name %>" hidden>
-            <input type="text" name="charId" value="<%= character._id %>" hidden>
-            <select name="teamList" form="addToTeam">
-                <option value="">select a team</option>
-                <% teams.forEach(team => { %>
-                    <option value="<%= team.id %>"><%= team.name %></option>
-                <% }) %>
-            </select>
-            <input type="submit" value="add">
-        </form>
-    </span>
-</h1>
-</div>
+<div class="show-container">
+    <div class="show-character">
+        <h1>
+            <span class="charName font-bold">
+                <%= character.name %>
+            </span>
+            <span>
+                <form id="addToTeam" action="/team/addTeammate" method="POST">
+                    <input type="text" name="name" value="<%= character.name %>" hidden>
+                    <input type="text" name="charId" value="<%= character._id %>" hidden>
+                    <select class="select-menu" name="teamList" form="addToTeam">
+                        <option value="">select a team</option>
+                        <% teams.forEach(team => { %>
+                            <option value="<%= team.id %>"><%= team.name %></option>
+                        <% }) %>
+                    </select>
+                    <input class="del-btn" type="submit" value="add">
+                </form>
+            </span>
+        </h1>
+    </div>
 
-<div style="font-style: italic">
-    <% if (randomQuote.length > 0) { %>
-        "<%= randomQuote %>"
-    <% } %>
-</div>
+    <div class="show-content">
+        <div style="font-style: italic">
+            <% if (randomQuote.length > 0) { %>
+                "<%= randomQuote %>"
+            <% } %>
+        </div>
 
-<br />
-<div>
-    <% if (character.gender) { %>
-        gender: <%= character.gender %>
-    <% } else { %>
-        gender: unknown
-    <% } %>
-</div>
-<div>
-    <% if (character.birth) { %>
-        birth: <%= character.birth %>
-    <% } else { %>
-        birth: unknown
-    <% } %>
-</div>
-<div>
-    <% if (character.height) { %>
-        height: <%= character.height %>
-    <% } else { %>
-        height: unknown
-    <% } %>
-</div>
-<div>
-    <% if (character.hair) { %>
-        hair: <%= character.hair %>
-    <% } else { %>
-        hair: unknown
-    <% } %>
-</div>
-<div>
-    <% if (character.spouse) { %>
-        spouse: <%= character.spouse %>
-    <% } else { %>
-        spouse: unknown
-    <% } %>
-</div>
-<div>
-    <% if (character.death) { %>
-        death: <%= character.death %>
-    <% } else { %>
-        death: TBD
-    <% } %>
-</div>
-<div>
-    more: <a href="<%= character.wikiUrl %>">wiki</a>
-</div>
+        <br />
+        <div>
+            <% if (character.gender) { %>
+                gender: <%= character.gender %>
+            <% } else { %>
+                gender: unknown
+            <% } %>
+        </div>
+        <div>
+            <% if (character.birth) { %>
+                birth: <%= character.birth %>
+            <% } else { %>
+                birth: unknown
+            <% } %>
+        </div>
+        <div>
+            <% if (character.height) { %>
+                height: <%= character.height %>
+            <% } else { %>
+                height: unknown
+            <% } %>
+        </div>
+        <div>
+            <% if (character.hair) { %>
+                hair: <%= character.hair %>
+            <% } else { %>
+                hair: unknown
+            <% } %>
+        </div>
+        <div>
+            <% if (character.spouse) { %>
+                spouse: <%= character.spouse %>
+            <% } else { %>
+                spouse: unknown
+            <% } %>
+        </div>
+        <div>
+            <% if (character.death) { %>
+                death: <%= character.death %>
+            <% } else { %>
+                death: TBD
+            <% } %>
+        </div>
+        <div class="link-btn">
+            more: <a href="<%= character.wikiUrl %>">wiki</a>
+        </div>
 
-<br />
-<br />
+        <br />
+        <br />
+        <br />
 
-<div>
-    <a href="/characters"> < back </a>
+
+        <div class="link-btn">
+            <a href="/characters"> < characters </a>
+        </div>
+    </div>
 </div>

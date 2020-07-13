@@ -1,19 +1,21 @@
 
-<div>
+<div class="comments-container">
     <% users.forEach(user => { %>
-        <% if (user.dataValues.teams[0] && user.dataValues.teams[0].comment) {%>
-        <h2>
+        <p class="username font-bold">
             <%= user.dataValues.name %>
-        </h2>
-        <% user.dataValues.teams.forEach(team => { %>
-            <div>
-                <h4><%= team.name %></h4>
-                <p>
-                    <%= team.comment %>
-                </p>
-            </div>
-        <% }) %>
-    <% } %>
-<% }) %>
-
+        </p>
+        <div class="comments-box">
+            <% user.dataValues.teams.forEach(team => { %>
+                <div class="comments-group">
+                    <p class="comments-team-name">
+                        <%= team.name %> -
+                    </p>
+                    <p class="comments-team-comment">
+                        <%= team.comment %>
+                    </p>
+                </div>
+            <% }) %>
+        </div>
+    <% }) %>
 </div>
+

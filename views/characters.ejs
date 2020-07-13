@@ -14,11 +14,16 @@
         <% return 0; %>    
     <% }) %>
 
-    <% alphabeticalOrder.forEach(element => { %>
-        <div class="characters">
-            <!-- <%# = element.index = charNum %> -->
-            <!-- <%# charNum++ %> -->
-            <a href="/characters/<%= element.charId %>"><%= element.name %></a>
-        </div>
-    <% }) %>
+    <div class="char-container">
+        <% alphabeticalOrder.forEach(element => { %>
+            <div class="char">
+                <a class="char-img" href="/characters/<%= element.charId %>">
+                    <img class="avatar" src="https://upload.wikimedia.org/wikipedia/commons/2/24/Missing_avatar.svg" alt="img placer">
+                </a>
+                <h4 class="char-name">
+                    <a href="/characters/<%= element.charId %>"><%= element.name %></a>
+                </h4>
+            </div>
+        <% }) %>
+    </div>
 </div>

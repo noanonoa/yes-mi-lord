@@ -188,7 +188,6 @@ router.post('/', (req, res) => {
 ========================================
 ========================================
 
-// QUESTIONS
 
-- [ ] How to add a teammate to a specific team?
-- [ ] One character can belong to many teams
+<% if (user.dataValues.teams[0] && user.dataValues.teams[0].comment) {%>
+<% } %>
