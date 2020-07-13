@@ -4,6 +4,8 @@ const router = express.Router();
 const db = require('../models');
 const axios = require('axios');
 const { get } = require('./auth');
+const isLoggedIn = require('../middleware/isLoggedIn');
+
 
 // const paginate = require('express-paginate');
 // router.use(paginate.middleware(100, 100));
@@ -24,7 +26,7 @@ const CHARACTER_URL = 'https://the-one-api.herokuapp.com/v1/character'
  ********** ROUTES **********
  ****************************/
 //CHARACTERS PAGE
-router.get('/', (req, res) => {
+router.get('/', isLoggedIn, (req, res) => {
 
     axios.get(QUOTE_URL, token)
     .then(results => {
@@ -48,7 +50,7 @@ router.get('/', (req, res) => {
 })
 
 //CHARACTER DETAILS
-router.get('/:id', (req, res) => {
+router.get('/:id', isLoggedIn, (req, res) => {
     db.team.findAll({
         where: {
             userId: req.user.id

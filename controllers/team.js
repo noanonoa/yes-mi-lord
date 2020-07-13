@@ -5,6 +5,7 @@ const db = require('../models');
 const axios = require('axios');
 const { get } = require('./auth');
 const methodOverride = require('method-override');
+const isLoggedIn = require('../middleware/isLoggedIn');
 
 router.use(methodOverride('_method'));
 
@@ -12,7 +13,7 @@ router.use(methodOverride('_method'));
  ********** ROUTES **********
  ****************************/
 //TEAMS PAGE
-router.get('/', (req, res) => {
+router.get('/', isLoggedIn, (req, res) => {
     db.team.findAll({
         where: {
             userId: req.user.dataValues.id
@@ -30,7 +31,7 @@ router.get('/', (req, res) => {
 })
 
 //TEAM DETAILS
-router.get('/:name', (req, res) => {
+router.get('/:name', isLoggedIn, (req, res) => {
 //FIND A TEAM BY ITS NAME
     db.team.findOne({
         where: {
@@ -54,7 +55,7 @@ router.get('/:name', (req, res) => {
 })
 
 //CREATE A TEAM
-router.post('/', (req, res) => {
+router.post('/', isLoggedIn, (req, res) => {
     db.team.findOrCreate({
         where: {
             name: req.body.name
@@ -72,7 +73,7 @@ router.post('/', (req, res) => {
 })
 
 //ADD TEAMMATE WITH SPECIFIC TEAM ID
-router.post('/addTeammate', (req, res) => {
+router.post('/addTeammate', isLoggedIn, (req, res) => {
     db.teammate.findOrCreate({
         where: {
             name: req.body.name,
@@ -90,7 +91,7 @@ router.post('/addTeammate', (req, res) => {
 })
 
 //UPDATE COMMENT ATTRIBUTE FOR TEAM DB
-router.put('/comment/:id', (req, res) => {
+router.put('/comment/:id', isLoggedIn, (req, res) => {
     db.team.update({
         comment: req.body.teamDescription
     },
@@ -111,7 +112,7 @@ router.put('/comment/:id', (req, res) => {
 })
 
 //DELETE COMMENT FROM TEAM
-router.put('/remove/comment/:id', (req, res) => {
+router.put('/remove/comment/:id', isLoggedIn, (req, res) => {
     db.team.update({
         comment: null
     },
@@ -126,7 +127,7 @@ router.put('/remove/comment/:id', (req, res) => {
 })
 
 //DELETE TEAM
-router.delete('/:id', (req, res) => {
+router.delete('/:id', isLoggedIn, (req, res) => {
     db.team.destroy({
         where: {
             id: req.params.id
@@ -138,7 +139,7 @@ router.delete('/:id', (req, res) => {
 })
 
 //DELETE TEAMMATE FROM TEAM
-router.delete('/teammate/:id', (req, res) => {
+router.delete('/teammate/:id', isLoggedIn, (req, res) => {
     console.log(req.user)
     db.teammate.destroy({
         where: {
