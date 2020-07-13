@@ -67,7 +67,6 @@ router.post('/', isLoggedIn, (req, res) => {
     })
     .then(([team, created]) => {
 //IF TEAM IS FOUND, FLASH A MESSAGE
-        req.flash('error', 'This team already exists!')
         res.redirect('/team')
     })
 })
