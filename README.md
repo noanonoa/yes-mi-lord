@@ -23,9 +23,11 @@ As a user, I want to be able to:
 6. Team Show Page
 
 ## Wireframes
-![](/public/wireframe-01.png)  
-![](/public/wireframe-02.png)  
+![wireframe-01](/public/wireframe-01.png)  
+![wirerame-02](/public/wireframe-02.png)  
 
+## Screenshot
+![screenshot-01](/public/01-screenshot.png)
 
 # Execution
 
